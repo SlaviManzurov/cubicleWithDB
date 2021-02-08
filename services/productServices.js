@@ -1,4 +1,4 @@
-const Cube = require('../models/cube')
+const Cube = require('../models/Cube')
 const uniqid = require('uniqid')
 const fs = require('fs/promises')
 const path = require('path')

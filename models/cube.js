@@ -1,9 +1,7 @@
-const fs = require('fs/promises')
-const path = require('path')
-let productsDB = require('../config/database.json')
+const Model = require('./Model');
 
 
-class Cube {
+class Cube extends Model{
     constructor(id, name, description, imageUrl, level) {
         this.id = id;
         this.name = name;
@@ -11,24 +9,6 @@ class Cube {
         this.imageUrl = imageUrl;
         this.level = level;
     }
-
-    save() {
-        productsDB.push(this)
-
-        return fs.writeFile(
-            path.join(__dirname, '../config/database.json'),
-            JSON.stringify(productsDB)
-        )
-    }
-
-    static getAll(){
-        return productsDB
-    }
-
-    static getOne(id){
-        return  productsDB.find(x => x.id == id)
-    }
-
 }
 
 module.exports = Cube;
