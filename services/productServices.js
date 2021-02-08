@@ -5,7 +5,8 @@ const productData = require('../data/productData')
 
 
 function getAll(query) {
-    let result = Cube.getAll()
+    //let result = Cube.getAll()
+    let result = productData.getAll()
     
     if (query.search){
         result = result.filter(x => x.name.toLocaleLowerCase().includes(query.search))
@@ -23,16 +24,12 @@ function getAll(query) {
 }
 
 function getOne(id) {
-    return Cube.getOne(id)
+    return productData.getOne(id)
+    // return Cube.getOne(id)
 }
 
 function createProduct(data) {
-    let cube = new Cube(
-        data.name,
-        data.description,
-        data.imageUrl,
-        data.difficultyLevel
-    )
+    let cube = new Cube(data)
 
     // return productData.create(cube)
     return cube.save()

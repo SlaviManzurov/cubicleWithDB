@@ -15,16 +15,16 @@ const cubeScheme = new mongoose.Schema({
         required: true,
         validate: /^https?/,
     },
-    difficaltiLevel: {
+    difficultyLevel: {
         type: Number,
         required: true,
-        min: 1,
-        max: 6
+        min: 0,
+        max: 7
     },
     accessories: [{
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Types.ObjectId,  
         ref: 'Accessory'
     }]
 })
 
-module.exports = mongoose.model('cube', cubeScheme);
+module.exports = mongoose.model('Cube', cubeScheme);
