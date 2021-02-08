@@ -36,7 +36,8 @@ function createProduct(data) {
         data.difficultyLevel
     )
 
-    return productData.create(cube)
+    // return productData.create(cube)
+    return cube.save()
 }
 
 module.exports = {
