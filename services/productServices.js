@@ -1,6 +1,6 @@
 const Cube = require('../models/cube')
 const uniqid = require('uniqid')
-const fs = require('fs')
+const fs = require('fs/promises')
 const path = require('path')
 
 let productData = require('../config/database.json')
@@ -36,15 +36,21 @@ function createProduct(data) {
         data.difficultyLevel
     )
 
+    
     productData.push(cube)
-    console.log(cube);
 
-    fs.writeFile(__dirname + '/../config/database.json', JSON.stringify(productData),(err) => {
-        if (err) {
-            console.log(err);
-            return
-        }
-    })
+    // fs.writeFile(__dirname + '/../config/database.json', JSON.stringify(productData),(err) => {
+    //     if (err) {
+    //         console.log(err);
+    //         return
+    //     }
+    // })
+
+    fs.writeFile(
+        path.join(__dirname, '../config/database.json'),
+        JSON.stringify(productData)
+    )
+
 }
 
 module.exports = {
