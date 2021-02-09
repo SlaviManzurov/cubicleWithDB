@@ -5,8 +5,10 @@ const router = Router()
 
 
 router.get('/', (req, res) => {
-    let products = dataService.getAll(req.query)
-    res.render('home',{products})
+    dataService.getAll(req.query)
+        .then(products => {
+            res.render('home', { products })
+        })
 })
 
 router.get('/create', (req, res) => {
@@ -23,7 +25,7 @@ router.post('/create', (req, res) => {
 router.get('/details/:productId', (req, res) => {
 
     let product = dataService.getOne(req.params.productId)
-    res.render('details', {product})
+    res.render('details', { product })
 })
 
 module.exports = router;
