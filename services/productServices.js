@@ -16,8 +16,10 @@ async function getAll(query) {
     return result
 }
 
-function getOne(id) {
-    return Cube.findById(id)
+async function getOne(id) {
+
+    let cube = Cube.findById(id)
+    return cube
 }
 
 function createProduct(data) {

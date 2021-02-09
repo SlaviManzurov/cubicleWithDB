@@ -22,9 +22,9 @@ router.post('/create', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/details/:productId', (req, res) => {
+router.get('/details/:productId', async (req, res) => {
 
-    let product = dataService.getOne(req.params.productId)
+    let product = await dataService.getOne(req.params.productId)
     res.render('details', { product })
 })
 
