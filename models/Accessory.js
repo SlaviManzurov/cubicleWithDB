@@ -8,4 +8,4 @@ const accessoryScheme = new mongoose.Schema({
     description: String,
 })
 
-module.e = mongoose.model('Accessory', accessoryScheme)
+module.exports = mongoose.model('Accessory', accessoryScheme)
